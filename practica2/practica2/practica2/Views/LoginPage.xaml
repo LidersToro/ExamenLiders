@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="practica2.Views.LoginPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Ingresar">
+    <ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding Login}">
+            <StackLayout
+                Padding="5">
+                <Grid
+                    Margin="10,0"
+                    VerticalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="EMail"
+                        FontSize="Micro"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Keyboard="Email"
+                        FontSize="Micro"
+                        Text="{Binding Email, Mode=TwoWay}"
+                        Placeholder="Ingrese su E-Mail">
+                    </Entry>
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        FontSize="Micro"
+                        Text="Password"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontSize="Micro"
+                        IsPassword="true"
+                        Text="{Binding Password, Mode=TwoWay}"
+                        Placeholder="Ingrese su Password">
+                    </Entry>
+                </Grid>
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning, Mode=TwoWay}"
+                    VerticalOptions="CenterAndExpand">
+                </ActivityIndicator>
+                <StackLayout
+                    Margin="10,0"
+                    Orientation="Horizontal"
+                    VerticalOptions="CenterAndExpand">
+                    <Label
+                        HorizontalOptions="StartAndExpand"
+                        Text="Recordar contraseña"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Switch
+                        IsToggled="{Binding IsRememberme, Mode=TwoWay}"
+                        HorizontalOptions="End">
+                    </Switch>
+                </StackLayout>
+                <Button
+                        BackgroundColor="Navy"
+                        BorderRadius="23"
+                        Command="{Binding LoginCommand}"
+                        HeightRequest="46"
+                        HorizontalOptions="FillAndExpand"
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                        Text="Ingresar"
+                        TextColor="White">
+                </Button>
+
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
